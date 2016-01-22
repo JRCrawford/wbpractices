@@ -1,3 +1,7 @@
+.jumbotron {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 /*Fade in and out for all links*/
 a {
     color: #c52d2f;
