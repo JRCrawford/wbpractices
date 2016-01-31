@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Web Best Practices | {{ category|capitalize }}
+{% endblock %}
+
+{% block mainbody %}
+    <div class="container-fluid">
+        <div class="row">
+            {% if category == 'development' %}
+                <img src="{{ asset('images/category/spider-web-forest-banner.png') }}" class="img-responsive">
+            {% elseif category == 'online-marketing' %}
+                <img src="{{ asset('images/category/online-marketing-banner.jpg') }}" class="img-responsive">
+            {% elseif category == 'management' %}
+                <img src="{{ asset('images/category/project-management-banner.jpg') }}" class="img-responsive">
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+    </div>
+{% endblock %}

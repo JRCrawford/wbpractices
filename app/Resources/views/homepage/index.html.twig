@@ -5,40 +5,7 @@ Web Best Practices | Complete SDLC Done Smartly
 {% endblock %}
 
 
-{% block body %}
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Web Best Practices</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header">Admin & Dashboard</li>
-                            <li><a href="#">Admin 1</a></li>
-                            <li><a href="#">Admin 2</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Portfolio</li>
-                            <li><a href="#">Portfolio 1</a></li>
-                            <li><a href="#">Portfolio 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div> <!-- end of navbar-->
-
+{% block mainbody %}
     <div class="container">
         <div class="jumbotron text-center">
             <h1>Web Best Practices</h1>
@@ -47,52 +14,28 @@ Web Best Practices | Complete SDLC Done Smartly
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <a href="service.html" class="thumbnail home-thumb">
+                <a href="{{ path('_category', {'category': 'development'}) }}" class="thumbnail home-thumb">
                     <img src="{{ asset('images/homepage/software-development.png') }}" alt="Programming and Development">
                 </a>
                 <h3>Development</h3>
                 <p>This section covers the technical side to developing a website.  The proper way to set up a Linux server, how to manage your code correctly and using frameworks to build websites in a structured and efficient manner.</p>
-                <a href="service.html" class="btn btn-danger">View</a>
             </div>
             <div class="col-sm-4">
-                <a href="#" class="thumbnail home-thumb">
+                <a href="{{ path('_category', {'category': 'online-marketing'}) }}" class="thumbnail home-thumb">
                     <img src="{{ asset('images/homepage/increase-ranking.png') }}" alt="Increase Ranking">
                 </a>
                 <h3>Online marketing</h3>
                 <p>Marketing a website is a very broad and rapidly changing subject.  Focusing on core concepts to improve a website's search ranking using sound SEO practices will be the main focus of this section.</p>
-                <a href="#" class="btn btn-danger">View</a>
             </div>
             <div class="col-sm-4">
-                <a href="#" class="thumbnail home-thumb">
+                <a href="{{ path('_category', {'category': 'management'}) }}" class="thumbnail home-thumb">
                     <img src="{{ asset('images/homepage/project-management.png') }}" alt="Project Management future planning">
                 </a>
                 <h3>Project Management</h3>
                 <p>The importance of maximising resources, ensuring quality and establishing exactly what needs to be done is vital for all projects. The combination of Scrum and PRINCE2 methodologies will be explained.</p>
-                <a href="#" class="btn btn-danger">View</a>
             </div>
         </div>
     </div>
 
-    <div class="navbar-inverse" role="navigation">
-        <section id="bottom"></section>
-
-        <footer id="footer">
-            <div class="container">
-                <div class="navbar-text pull-left">
-                    <p>&copy; {{ "now"|date("Y") }} Web Best Practices</p>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                    <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 {% endblock %}

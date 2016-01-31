@@ -1,3 +1,7 @@
+.navbar-fixed-top {
+    position: relative;
+}
+
 .jumbotron {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -106,7 +110,8 @@ a {
 /***End of NavBar Section***/
 
 body {
-    padding-top: 100px;
+    padding-top: 0px;
+    display: block;
 }
 
 p {
