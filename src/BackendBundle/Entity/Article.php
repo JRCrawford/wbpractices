@@ -35,6 +35,13 @@ class Article
      */
     private $content;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", nullable=false)
+     */
+    private $slug;
+
 
     /**
      * Get id
@@ -93,5 +100,28 @@ class Article
     {
         return $this->content;
     }
-}
 
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+}
