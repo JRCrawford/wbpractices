@@ -31,6 +31,13 @@ class Article
     /**
      * @var string
      *
+     * @ORM\Column(name="summary", type="text", nullable=true)
+     */
+    private $summary;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
@@ -38,9 +45,23 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", nullable=false)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false)
      */
     private $slug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=255, nullable=false)
+     */
+    private $category;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="date_posted", type="datetime", nullable=false)
+     */
+    private $datePosted;
 
 
     /**
@@ -123,5 +144,77 @@ class Article
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     *
+     * @return Article
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set datePosted
+     *
+     * @param \DateTime $datePosted
+     *
+     * @return Article
+     */
+    public function setDatePosted($datePosted)
+    {
+        $this->datePosted = $datePosted;
+
+        return $this;
+    }
+
+    /**
+     * Get datePosted
+     *
+     * @return \DateTime
+     */
+    public function getDatePosted()
+    {
+        return $this->datePosted;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Article
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }
