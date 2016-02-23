@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class CategoryController extends Controller
 {
     /**
-     * @Route("/{category}", name="_category")
+     * @Route("/{category}/", name="_category")
      * @param string $category
      */
     public function indexAction($category)

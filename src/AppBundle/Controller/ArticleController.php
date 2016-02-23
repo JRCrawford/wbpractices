@@ -9,6 +9,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ArticleController extends Controller
 {
     /**
+     * @Route("/{category}/{article_slug}", name="_article")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction()
+    {
+        return $this->render('article/index.html.twig');
+    }
+
+    /**
      * @Route("/article/new")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
