@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FrontendBundle\Controller;
+namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         $categoryHeading = "Web Development";
         $categorySubheading = "Symfony framework will be explained";
-        $repository = $this->getDoctrine()->getRepository('BackendBundle:Article');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Article');
         $articles = $repository->findAll();
 
         if ($category == "online-marketing") {

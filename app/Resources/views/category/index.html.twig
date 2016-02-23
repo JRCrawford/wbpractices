@@ -23,14 +23,14 @@ Web Best Practices | {{ category|capitalize }}
             {% for article in articles %}
                 {% if article.category == category %}
                 <div class="post-preview">
-                    <a href="{{ article.category~'/'~article.slug }}">
+                    <a href="{{ path('_category', {'category': article.category }) }}">
                         <h2 class="post-title">
                             {{ article.title }}
                         </h2>
-                        <h3 class="post-subtitle">
-                            {{ article.summary }}
-                        </h3>
                     </a>
+                    <p class="post-subtitle">
+                        {{ article.summary }}
+                    </p>
                     <p class="post-meta">Posted on {{ article.datePosted|date("F jS \\a\\t g:ia") }}</p>
                 </div>
                 <hr>

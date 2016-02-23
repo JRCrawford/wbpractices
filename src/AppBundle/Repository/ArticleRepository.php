@@ -1,6 +1,6 @@
 <?php
 
-namespace BackendBundle\Repository;
+namespace AppBundle\Repository;
 
 /**
  * ArticleRepository

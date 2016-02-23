@@ -1,9 +1,4 @@
-backend:
-    resource: "@BackendBundle/Controller/"
-    type:     annotation
-    prefix:   /be
-
-frontend:
-    resource: "@FrontendBundle/Controller/"
+wbpractices:
+    resource: "@AppBundle/Controller/"
     type:     annotation
     prefix:   /

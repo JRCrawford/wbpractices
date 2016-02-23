@@ -1,9 +1,9 @@
 <?php
-namespace BackendBundle\DataFixtures\ORM;
+namespace AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use BackendBundle\Entity\Article;
+use AppBundle\Entity\Article;
 
 class LoadArticles implements FixtureInterface
 {
