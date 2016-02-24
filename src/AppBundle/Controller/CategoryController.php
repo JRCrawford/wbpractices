@@ -9,7 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class CategoryController extends Controller
 {
     /**
-     * @Route("/{category}/", name="_category")
+     * @Route("/{category}/", name="_category",
+     *      requirements={"category": "development|online-marketing|management"})
      * @param string $category
      */
     public function indexAction($category)

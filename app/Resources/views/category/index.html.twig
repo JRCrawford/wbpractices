@@ -23,7 +23,7 @@ Web Best Practices | {{ category|capitalize }}
             {% for article in articles %}
                 {% if article.category == category %}
                 <div class="post-preview">
-                    <a href="{{ path('_category', {'category': article.category }) }}">
+                    <a href="{{ path('_article', {'category': article.category, 'article_slug': article.slug }) }}">
                         <h2 class="post-title">
                             {{ article.title }}
                         </h2>

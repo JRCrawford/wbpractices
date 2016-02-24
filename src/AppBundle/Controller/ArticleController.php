@@ -4,12 +4,17 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Form\ArticleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 
 class ArticleController extends Controller
 {
     /**
-     * @Route("/{category}/{article_slug}", name="_article")
+     * @Route("/{category}/{article_slug}",
+     *      requirements={"category": "development|online-marketing|management"},
+     *      name="_article")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction()
@@ -18,31 +23,35 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/article/new")
+     * @Route("/article/new", name="_newArticle")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
     {
-        // just setup a fresh $task object (remove the dummy data)
+        // 1) build the form
         $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
 
-        $form = $this->createFormBuilder($article)
-            ->add('task', TextType::class)
-            ->add('dueDate', DateType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create Task'))
-            ->getForm();
-
+        // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            // ... perform some action, such as saving the task to the database
 
-            return $this->redirectToRoute('task_success');
+            // 4) save the User!
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            // ... do any other work - like send them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('_newArticle');
         }
 
-        return $this->render('default/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render(
+            'article/new_update.html.twig',
+            array('form' => $form->createView())
+        );
+
     }
 }
