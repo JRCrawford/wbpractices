@@ -16,9 +16,13 @@ class ArticleType extends AbstractType
         $builder
             ->add('title', TextType::class)
             ->add('summary', TextType::class)
-            ->add('content', TextareaType::class,
-                array(
-                'attr' => array('class' => 'tinymce')))
+            ->add('content', TextareaType::class, array(
+                'attr' => array(
+                    'rows' => '30',
+                    'class' => 'tinymce',
+                    'data-theme' => 'advanced',
+                )
+            ))
             ->add('slug', TextType::class)
             ->add('mainImage', TextType::class)
             ->add('category', TextType::class)

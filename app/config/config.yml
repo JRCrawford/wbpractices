@@ -68,3 +68,15 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+stfalcon_tinymce:
+    language: %locale%
+    theme:
+        advanced:
+            menubar: false
+            plugins:
+              - "autolink link image code preview textcolor advlist lists"
+            toolbar1: "undo redo | cut copy paste | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect forecolor bold italic underline link | image preview code"
+            image_advtab: true
+            relative_urls: false
+            convert_urls: false
