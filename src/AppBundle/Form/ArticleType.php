@@ -20,8 +20,9 @@ class ArticleType extends AbstractType
                 array(
                 'attr' => array('class' => 'tinymce')))
             ->add('slug', TextType::class)
+            ->add('mainImage', TextType::class)
             ->add('category', TextType::class)
-            ->add('date_posted', DateType::class)
+            ->add('datePosted', DateType::class)
         ;
     }
 

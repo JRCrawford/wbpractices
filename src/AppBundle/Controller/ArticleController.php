@@ -17,9 +17,19 @@ class ArticleController extends Controller
      *      name="_article")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function showAction()
+    public function showAction($article_slug)
     {
-        return $this->render('article/index.html.twig');
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Article');
+        $query = $repository->createQueryBuilder('a')
+                ->where('a.slug = :slug')
+                ->setParameter('slug', $article_slug)
+            ->getQuery();
+        $article = $query->getOneOrNullResult();
+
+        return $this->render('article/index.html.twig', array(
+            'article' => $article,
+        ));
     }
 
     /**

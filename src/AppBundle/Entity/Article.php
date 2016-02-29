@@ -63,6 +63,13 @@ class Article
      */
     private $datePosted;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="main_image", type="string", length=255, nullable=false)
+     */
+    private $mainImage;
+
 
     /**
      * Get id
@@ -216,5 +223,29 @@ class Article
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set mainImage
+     *
+     * @param string $mainImage
+     *
+     * @return Article
+     */
+    public function setMainImage($mainImage)
+    {
+        $this->mainImage = $mainImage;
+
+        return $this;
+    }
+
+    /**
+     * Get mainImage
+     *
+     * @return string
+     */
+    public function getMainImage()
+    {
+        return $this->mainImage;
     }
 }
