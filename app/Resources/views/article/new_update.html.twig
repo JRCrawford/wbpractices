@@ -5,6 +5,13 @@
 </head>
 
 <body>
+{% if app.session.flashBag.has('notice') %}
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+{% endif %}
     {{ form_start(form) }}
     {{ form_row(form.title) }}
     {{ form_row(form.slug) }}

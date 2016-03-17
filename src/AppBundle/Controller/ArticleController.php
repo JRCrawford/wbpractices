@@ -34,34 +34,43 @@ class ArticleController extends Controller
 
     /**
      * @Route("/article/new", name="_newArticle")
+     * @Route("/article/edit/{id}", defaults={"id" = null}, name="_editArticle")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $id)
     {
-        // 1) build the form
-        $article = new Article();
+        //1) See if article exists and pull out it data if it does
+        $article = $this->getDoctrine()->getRepository('AppBundle:Article')->find($id);
+        if (!$article instanceof Article) {
+            $article = new Article();
+        }
+
+        // 2) build the form
         $form = $this->createForm(ArticleType::class, $article);
 
-        // 2) handle the submit (will only happen on POST)
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        // 3) handle the submit (will only happen on POST)
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
 
-            // 4) save the User!
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
-            $em->flush();
+            if ($form->isValid()) {
+                // 4) save/update the article
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($article);
+                $em->flush();
 
-            // ... do any other work - like send them an email, etc
-            // maybe set a "flash" success message for the user
+                $this->addFlash(
+                    'notice',
+                    'Article changes were saved'
+                );
 
-            return $this->redirectToRoute('_newArticle');
+                return $this->redirectToRoute('_editArticle', ['id' => $article->getId()]);
+            }
         }
 
         return $this->render(
             'article/new_update.html.twig',
             array('form' => $form->createView())
         );
-
     }
 }
