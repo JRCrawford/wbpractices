@@ -36,13 +36,18 @@ class ArticleController extends Controller
      * @Route("/article/new", name="_newArticle")
      * @Route("/article/edit/{id}", defaults={"id" = null}, name="_editArticle")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function newAction(Request $request, $id)
+    public function newAction(Request $request, $id = null)
     {
         //1) See if article exists and pull out it data if it does
-        $article = $this->getDoctrine()->getRepository('AppBundle:Article')->find($id);
-        if (!$article instanceof Article) {
+        if ($id) {
+            $article = $this->getDoctrine()->getRepository('AppBundle:Article')->find($id);
+            if (!$article instanceof Article) {
+                $article = new Article();
+            }
+        } else {
             $article = new Article();
         }
 
