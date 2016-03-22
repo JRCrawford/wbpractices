@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+apacheconf+asciidoc+bash+git+json+less+php+php-extras+sql+twig+vim+yaml&plugins=line-highlight+line-numbers+show-invisibles+autolinker+wpd+file-highlight+show-language+command-line */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+apacheconf+asciidoc+bash+git+json+less+php+php-extras+sql+twig+vim+yaml&plugins=line-highlight+line-numbers+autolinker+wpd+file-highlight+show-language+command-line */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -209,39 +209,6 @@ pre.line-numbers > code {
 			padding-right: 0.8em;
 			text-align: right;
 		}
-.token.tab:not(:empty),
-.token.cr,
-.token.lf,
-.token.space {
-	position: relative;
-}
-
-.token.tab:not(:empty):before,
-.token.cr:before,
-.token.lf:before,
-.token.space:before {
-	color: hsl(24, 20%, 85%);
-	position: absolute;
-}
-
-.token.tab:not(:empty):before {
-    content: '\21E5';
-}
-
-.token.cr:before {
-    content: '\240D';
-}
-
-.token.crlf:before {
-    content: '\240D\240A';
-}
-.token.lf:before {
-    content: '\240A';
-}
-
-.token.space:before {
-	content: '\00B7';
-}
 .token a {
 	color: inherit;
 }
