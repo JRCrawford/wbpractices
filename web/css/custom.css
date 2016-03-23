@@ -1,3 +1,24 @@
+/*start of bolding li elements*/
+ol {
+    counter-reset:item;
+}
+
+ol>li {
+    text-indent:-2em;
+    list-style-type:none;
+    counter-increment:item;
+}
+
+ol>li:before {
+    display:inline-block;
+    width:1.5em;
+    padding-right:0.5em;
+    font-weight:bold;
+    text-align:right;
+    content:counter(item) ".";
+}
+/*end of bolding li elements*/
+
 .black-title h1 {
     color: black;
 }
