@@ -70,6 +70,12 @@ class Article
      */
     private $mainImage;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title_colour", type="string", length=255, nullable=false)
+     */
+    private $titleColour;
 
     /**
      * Get id
@@ -247,5 +253,29 @@ class Article
     public function getMainImage()
     {
         return $this->mainImage;
+    }
+
+    /**
+     * Set titleColour
+     *
+     * @param string $titleColour
+     *
+     * @return Article
+     */
+    public function setTitleColour($titleColour)
+    {
+        $this->titleColour = $titleColour;
+
+        return $this;
+    }
+
+    /**
+     * Get titleColour
+     *
+     * @return string
+     */
+    public function getTitleColour()
+    {
+        return $this->titleColour;
     }
 }

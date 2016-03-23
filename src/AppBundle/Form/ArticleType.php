@@ -26,6 +26,7 @@ class ArticleType extends AbstractType
             ->add('slug', TextType::class)
             ->add('mainImage', TextType::class)
             ->add('category', TextType::class)
+            ->add('titleColour', TextType::class)
             ->add('datePosted', DateType::class)
         ;
     }

@@ -17,6 +17,7 @@ class LoadArticles implements FixtureInterface
         $articleDev->setSlug("demo-article-dev");
         $articleDev->setCategory("development");
         $articleDev->setDatePosted(new \DateTime("2016-01-01 01:01:01"));
+        $articleDev->setTitleColour("black-title");
         $manager->persist($articleDev);
 
         $articleManager = new Article();
@@ -27,6 +28,7 @@ class LoadArticles implements FixtureInterface
         $articleManager->setSlug("demo-article-manager");
         $articleManager->setCategory("management");
         $articleManager->setDatePosted(new \DateTime("2016-02-02 02:02:02"));
+        $articleManager->setTitleColour("white-title");
         $manager->persist($articleManager);
 
         $articleMarketing = new Article();
@@ -49,6 +51,7 @@ class LoadArticles implements FixtureInterface
         $articleMarketing->setSlug("demo-article-marketing");
         $articleMarketing->setCategory("online-marketing");
         $articleMarketing->setDatePosted(new \DateTime("2016-03-03 03:03:03"));
+        $articleMarketing->setTitleColour("black-title");
         $manager->persist($articleMarketing);
 
         $manager->flush();
