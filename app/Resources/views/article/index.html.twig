@@ -3,6 +3,10 @@
 {% block title %}
 {% endblock %}
 
+{% block metadescription %}
+<meta name="description" content="{{ article.summary }}">
+{% endblock %}
+
 {% block mainbody %}
     <header class="intro-header" style="background-image: url('{{ asset(article.mainImage) }}')">
         <div class="container">
