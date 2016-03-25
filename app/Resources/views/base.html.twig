@@ -33,34 +33,14 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            {% if app.request.getPathInfo == "/" %}
-                                <li class="active"><a href="{{ path('_homepage') }}">Home</a></li>
-                            {% else %}
-                                <li><a href="{{ path('_homepage') }}">Home</a></li>
-                            {% endif %}
+                            <li class="{{ app.request.getPathInfo == '/' ? 'active': '' }}"><a href="{{ path('_homepage') }}">Home</a></li>
                             <li><a href="#">About</a></li>
-                            {% if "development" in app.request.getPathInfo or "online-marketing" in app.request.getPathInfo  or  "management" in app.request.getPathInfo  %}
-                                <li class="active dropdown">
-                            {% else %}
-                                <li class="dropdown">
-                            {% endif %}
+                            <li class="{{ 'development' in app.request.getPathInfo or 'online-marketing' in app.request.getPathInfo or 'management' in app.request.getPathInfo ? 'active': '' }} dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    {% if "development" in app.request.getPathInfo %}
-                                        <li class="active"><a href="{{ path('_category', {'category': 'development'}) }}">Web Development</a></li>
-                                    {% else %}
-                                        <li><a href="{{ path('_category', {'category': 'development'}) }}">Web Development</a></li>
-                                    {% endif %}
-                                    {% if "online-marketing" in app.request.getPathInfo %}
-                                        <li class="active"><a href="{{ path('_category', {'category': 'online-marketing'}) }}">Online Marketing</a></li>
-                                    {% else %}
-                                        <li><a href="{{ path('_category', {'category': 'online-marketing'}) }}">Online Marketing</a></li>
-                                    {% endif %}
-                                    {% if "management" in app.request.getPathInfo %}
-                                        <li class="active"><a href="{{ path('_category', {'category': 'management'}) }}">Project Management</a></li>
-                                    {% else %}
-                                        <li><a href="{{ path('_category', {'category': 'management'}) }}">Project Management</a></li>
-                                    {% endif %}
+                                    <li class="{{ 'development' in app.request.getPathInfo ? 'active': '' }}"><a href="{{ path('_category', {'category': 'development'}) }}">Web Development</a></li>
+                                    <li class="{{ 'online-marketing' in app.request.getPathInfo ? 'active': '' }}"><a href="{{ path('_category', {'category': 'online-marketing'}) }}">Online Marketing</a></li>
+                                    <li class="{{ 'management' in app.request.getPathInfo ? 'active': '' }}"><a href="{{ path('_category', {'category': 'management'}) }}">Project Management</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Contact</a></li>
