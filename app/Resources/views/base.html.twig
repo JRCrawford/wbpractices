@@ -28,7 +28,12 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="{{ path('_homepage') }}">
-                            <img alt="Web Best Practices logo" style="max-width:100px; margin-top: -20px;" src="{{ asset('/images/homepage/wbpractice-logo-small.png') }}">
+                            <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                                <img alt="Web Best Practices logo" style="max-width:50px; margin-top: -25px;" src="{{ asset('/images/homepage/wbpractice-logo-small-mobile.png') }}">
+                            </div>
+                            <div class="hidden-xs col-sm-12">
+                                <img alt="Web Best Practices logo" style="max-width:100px; margin-top: -20px;" src="{{ asset('/images/homepage/wbpractice-logo-small.png') }}">
+                            </div>
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">
