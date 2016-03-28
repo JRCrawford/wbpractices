@@ -1,3 +1,7 @@
+PrestaSitemapBundle:
+    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
+    prefix:   /
+
 wbpractices:
     resource: "@AppBundle/Controller/"
     type:     annotation
